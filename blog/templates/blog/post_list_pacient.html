@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <title>Clinica</title>
+</head>
+<body>
+  <div class="loginform">
+    <div class="hola"><p>Buenos dias Doctor {{user}}</p></div>
+    <p><a href="{% url 'post_new_pacient' %}"><button>Agregar</button></a></p>
+    <div class="que">¿Que paciente desea ver?</div>
+    <br>
+    <br>
+    <div class="listadoa">
+        <nav class="fraccion"><h1>RUT:</h1></nav>
+        <nav class="fraccion"><h1>NOMBRES:</h1></nav>
+        <nav class="fraccion"><h1>TELEFONO:</h1></nav>
+    </div>
+    {% for Paciente in Pacientes %} 
+        <div class="listado">
+          <a href="{% url 'post_detail_pacient' pk=Paciente.pk %}">
+              <nav class="fraccion"><h1>{{ Paciente.rut }}</h1></nav>
+              <nav class="fraccion"><h1>{{ Paciente.nombres }}</h1></nav>
+              <nav class="fraccion"><h1>{{ Paciente.telefono }}</h1></nav>
+          </a>
+        </div>
+    {% endfor %}
+    <p><a href="{% url 'logout' %}"><button>Salir</button></a></p>
+  </div>
+    
+</body>
+</html>

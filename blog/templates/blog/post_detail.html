@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/intro.css' %}">
+    <title>Clinica</title>
+</head>
+<body>
+    <a href="{% url 'post_list_pacient' %}"><button>VOLVER</button></a>
+    <div id="borderDemo" class="loginform">
+        <br><br>
+        <h6>Codigo: {{ Diagnosticos.pk }}</h6>
+        <h6>Medico: {{ Diagnosticos.medico }}</h6>
+        <h6> Paciente: {{ Diagnosticos.paciente }}</h6>
+        <h6>Rut Entidad: {{ Diagnosticos.rut_entidad }}</h6>
+        <h6>Fecha: {{ Diagnosticos.fecha }}</h6>
+        <h6>fecha Entrega: {{ Diagnosticos.fecha_entrega }}</h6>
+        <h6>Estado: {{ Diagnosticos.estado }}</h6>
+        <br>
+        <a class="btn btn-default" href="{% url 'post_edit' pk=Diagnosticos.pk %}"> <button>editar</button> </a>
+    </div>
+</body>
+</html>
